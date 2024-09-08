@@ -14,7 +14,7 @@ license=('GPL-2.0-or-later')
 depends=('java-runtime<=11')
 makedepends=('apache-ant' 'git' 'java-environment=8' 'libicns')   # 'libicns' provides 'icns2png'
 provides=('freemind')
-conflicts=('freemind' 'freemind-unstable')
+conflicts=('freemind' 'freemind-unstable')  # remove 'freemind-unstable' on 01.01.2025
 replaces=('freemind-unstable')  # remove on 01.01.2025
 source=(
     'git+https://git.code.sf.net/p/freemind/code'

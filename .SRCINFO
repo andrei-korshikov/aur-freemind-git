@@ -12,6 +12,7 @@ pkgbase = freemind-git
 	depends = java-runtime<=11
 	provides = freemind
 	conflicts = freemind
+	conflicts = freemind-unstable
 	replaces = freemind-unstable
 	source = git+https://git.code.sf.net/p/freemind/code
 	source = freemind.desktop
