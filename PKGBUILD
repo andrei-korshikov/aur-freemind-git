@@ -2,6 +2,9 @@
 # Contributor: Andrzej Giniewicz <gginiu at gmail dot com>
 # Contributor: Archie <mymaud at gmail dot com>
 
+# Author:                   Andrei Korshikov
+# SPDX-License-Identifier:  0BSD
+
 pkgname='freemind-git'
 _release='1.1.0_Beta_2'
 pkgver=1.1.0_Beta_2.r1064.cc87d4a4
@@ -11,9 +14,9 @@ arch=('any')
 url='https://freemind.sourceforge.io/wiki/'
 license=('GPL-2.0-or-later')
 # 'cc87d4a4' can run on Java 8 or 11, and can be compiled with Java 8 only
-depends=('java-runtime<=11')
+depends=('hicolor-icon-theme' 'java-runtime<=11' 'sh')
 makedepends=('apache-ant' 'git' 'java-environment=8' 'libicns')   # 'libicns' provides 'icns2png'
-provides=('freemind')
+provides=("freemind=${pkgver}")
 conflicts=('freemind' 'freemind-unstable')  # remove 'freemind-unstable' on 01.01.2025
 replaces=('freemind-unstable')  # remove on 01.01.2025
 source=(
@@ -22,7 +25,7 @@ source=(
     )
 b2sums=(
     'SKIP'
-    'c1aeebe028d59c6d3c0f0c7ef5f4353ef08d7f7103944305cc3166d65b9ff593fd7c4eeea7f28e43ad887308fa45c334c91b81f75fc1b4f43f5d8dacb610b0b7'
+    'b86e31437268c243d93aebdb802c269b11c1acdeda1f4fb218ecb8b1a0410ad2c3620a27739cb04b629c2c6976524f3f4b542402d29126aa650e56cc0f367c9e'
     )
 
 prepare() {
@@ -53,9 +56,9 @@ package() {
     ln --symbolic '/usr/share/freemind/freemind.sh' "${pkgdir}/usr/bin/freemind"
     chmod +x "${pkgdir}/usr/share/freemind/freemind.sh"
 
-    local _license_dir="${pkgdir}/usr/share/licenses/freemind/"
+    local _license_dir="${pkgdir}/usr/share/licenses/${pkgname}/"
     install --directory "${_license_dir}"
-    ln --symbolic "/usr/share/freemind/license" "${_license_dir}"
+    ln --symbolic '/usr/share/freemind/license' "${_license_dir}"
 
     local _prefix='FreeMindWindowIconModern'
     icns2png --extract "code/freemind/images/${_prefix}.icns"

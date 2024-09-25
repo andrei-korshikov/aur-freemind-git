@@ -2,7 +2,7 @@
 Type=Application
 Version=1.5
 Name=FreeMind
-GenericName=Mind mapper
+GenericName=Mind Mapper
 Comment=Hierarchical editor with strong emphasis on folding
 Icon=freemind
 Exec=freemind %U
